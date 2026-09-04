@@ -1,0 +1,211 @@
+<section id="habitaciones" class="py-24 bg-light relative overflow-hidden">
+  <!-- Decorative background -->
+  <div class="absolute top-0 left-0 w-80 h-80 bg-primary/5 rounded-full -ml-40 -mt-40"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full -mr-48 -mb-48"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-10">
+      <span class="text-primary font-sans font-semibold tracking-widest uppercase text-sm mb-3 block">Nuestras Opciones</span>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-dark mb-4">Habitaciones y Suites</h2>
+      <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+      <p class="text-dark-gray max-w-2xl mx-auto text-lg font-light">Descubre el confort absoluto con un diseño contemporáneo, iluminación natural y vistas inspiradoras.</p>
+    </div>
+    
+    <!-- Search Bar -->
+    <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-xl p-6 md:p-8 rounded-2xl border border-white shadow-2xl mb-16 relative z-30 -mt-32 transform transition-all duration-300 hover:shadow-primary/10">
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="flex flex-col sm:flex-row gap-4 items-end">
+        <div class="flex-1 w-full text-left">
+          <label class="block text-primary-dark text-[11px] font-bold uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            Llegada
+          </label>
+          <input type="date" formControlName="fechaIni" class="w-full bg-white border border-primary/20 text-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm">
+        </div>
+        <div class="flex-1 w-full text-left">
+          <label class="block text-primary-dark text-[11px] font-bold uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            Salida
+          </label>
+          <input type="date" formControlName="fechaFin" class="w-full bg-white border border-primary/20 text-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm">
+        </div>
+        <button type="submit" [disabled]="searchForm.invalid" class="w-full sm:w-auto px-10 py-3 bg-gradient-to-r from-primary to-primary-dark text-white font-bold rounded-xl hover:from-primary-dark hover:to-primary hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 shadow-lg shadow-primary/20 disabled:opacity-50 uppercase text-xs tracking-wider h-[48px] flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          Buscar
+        </button>
+      </form>
+    </div>
+
+    <!-- Hotel Policies Info -->
+    <div class="max-w-5xl mx-auto mb-12">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+        <!-- Check-in / Check-out -->
+        <div class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 border border-gray-100 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[10px] text-primary font-bold uppercase tracking-[0.15em]">Horarios</p>
+            <p class="text-dark text-sm font-medium">Check-in: <span class="text-dark-gray font-light">14:00</span> · Check-out: <span class="text-dark-gray font-light">12:00</span></p>
+          </div>
+        </div>
+
+        <!-- No Mascotas -->
+        <div class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 border border-gray-100 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[10px] text-primary font-bold uppercase tracking-[0.15em]">Política de mascotas</p>
+            <p class="text-dark text-sm font-medium">No se aceptan mascotas</p>
+          </div>
+        </div>
+
+        <!-- No Fumadores -->
+        <div class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 border border-gray-100 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[10px] text-primary font-bold uppercase tracking-[0.15em]">Política de fumadores</p>
+            <p class="text-dark text-sm font-medium">100% NO fumadores</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    @if (isLoading) {
+      <div class="flex flex-col items-center justify-center py-20">
+        <div class="relative">
+          <div class="w-16 h-16 border-4 border-primary/20 rounded-full"></div>
+          <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin absolute inset-0"></div>
+        </div>
+        <p class="text-dark-gray font-medium mt-6 animate-pulse">Buscando disponibilidad...</p>
+      </div>
+    } @else {
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (habitacion of habitaciones; track habitacion.id) {
+          <app-habitacion-card [habitacion]="habitacion" (reserve)="openReservationModal($event)"></app-habitacion-card>
+        }
+      </div>
+      
+      @if (habitaciones.length === 0) {
+        <div class="text-center py-20 bg-white rounded-2xl border border-gray-100 shadow-sm mt-8">
+          <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-dark mb-2">No hay disponibilidad</h3>
+          <p class="text-dark-gray font-light">Lo sentimos, no encontramos habitaciones para las fechas seleccionadas.<br>Por favor intenta con otras fechas.</p>
+        </div>
+      }
+    }
+  </div>
+
+  <!-- Modal de Reserva -->
+  <div *ngIf="selectedHabitacion" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-dark/70 backdrop-blur-md animate-fade-in-up">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden relative border border-white/20">
+      
+      <!-- Header -->
+      <div class="bg-primary px-6 py-5 flex justify-between items-center relative overflow-hidden">
+        <!-- Decoracion sutil de fondo en el header -->
+        <div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-dark opacity-90 z-0"></div>
+        <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10 z-0"></div>
+        
+        <h3 class="text-xl font-sans font-bold text-white tracking-tight relative z-10">Reservar Habitación</h3>
+        <button (click)="closeModal()" class="relative z-10 text-white/80 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="p-6 md:p-8">
+        <!-- Room Info Card -->
+        <div class="mb-8 flex items-center gap-5 bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm transition-transform hover:-translate-y-1 duration-300">
+          <img [src]="selectedHabitacion.imageUrl" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Room">
+          <div>
+            <p class="text-xs text-primary font-bold uppercase tracking-wider mb-1">{{ selectedHabitacion.type }}</p>
+            <p class="text-dark font-sans font-bold text-xl leading-tight">Habitación {{ selectedHabitacion.nro_habitacion }}</p>
+            <p class="text-sm font-medium text-dark-gray mt-1">Bs. {{ selectedHabitacion.price }} <span class="text-xs font-normal">/ noche</span></p>
+          </div>
+        </div>
+
+        @if (reservaExitosa) {
+          <div class="text-center py-8">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h4 class="text-2xl font-bold text-dark mb-2">¡Reserva Exitosa!</h4>
+            <p class="text-dark-gray">Tu reserva ha sido procesada correctamente.</p>
+          </div>
+        } @else {
+          <form [formGroup]="reservationForm" (ngSubmit)="submitReservation()" class="space-y-4">
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Llegada</label>
+                <input type="date" formControlName="fecha_ini" class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2.5 text-gray-500 font-medium opacity-70 cursor-not-allowed">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Salida</label>
+                <input type="date" formControlName="fecha_fin" class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2.5 text-gray-500 font-medium opacity-70 cursor-not-allowed">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">DNI / Pasaporte <span class="text-primary">*</span></label>
+              <input #docInput (keydown.enter)="nomInput.focus(); $event.preventDefault()" id="nroDocumentoInput" type="text" formControlName="nro_documento" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ingrese su documento">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Nombre <span class="text-primary">*</span></label>
+              <input #nomInput (keydown.enter)="ape1Input.focus(); $event.preventDefault()" type="text" formControlName="nombre" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. Juan">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Primer Apellido <span class="text-primary">*</span></label>
+                <input #ape1Input (keydown.enter)="ape2Input.focus(); $event.preventDefault()" type="text" formControlName="primer_apellido" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. Pérez">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Segundo Apellido</label>
+                <input #ape2Input (keydown.enter)="telInput.focus(); $event.preventDefault()" type="text" formControlName="segundo_apellido" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="(Opcional)">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Teléfono (WhatsApp) <span class="text-primary">*</span></label>
+                <input #telInput (keydown.enter)="detalleInput.focus(); $event.preventDefault()" type="text" formControlName="telefono" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. 70012345">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Detalle Opcional</label>
+                <textarea #detalleInput (keydown.enter)="submitBtn.focus(); $event.preventDefault()" formControlName="detalle" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal resize-none h-[48px]" placeholder="(Opcional)"></textarea>
+              </div>
+            </div>
+
+            <div class="pt-6 flex justify-end gap-4 mt-8 border-t border-gray-100">
+              <button type="button" (click)="closeModal()" class="px-6 py-3 rounded-lg text-dark-gray font-bold hover:bg-gray-100 hover:text-dark transition-colors">
+                Cancelar
+              </button>
+              <button #submitBtn type="submit" [disabled]="reservationForm.invalid || isSubmitting" class="px-8 py-3 rounded-lg bg-primary text-accent font-bold border border-accent/50 hover:bg-primary-dark hover:border-accent hover:shadow-accent/30 transition-all duration-300 shadow-lg shadow-primary/40 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed flex items-center justify-center min-w-[180px] uppercase text-xs tracking-wider">
+                @if(isSubmitting) {
+                  <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  Procesando...
+                } @else {
+                  Confirmar Reserva
+                }
+              </button>
+            </div>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

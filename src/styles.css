@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import 'flatpickr/dist/flatpickr.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-light text-dark-gray font-sans antialiased overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-dark;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F9FA; 
+}
+::-webkit-scrollbar-thumb {
+  background: #A30000; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7A0000; 
+}
+
+/* Flatpickr Customizations */
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover {
+  color: #a0aec0 !important; /* Tailwind gray-400 */
+  font-weight: 500 !important;
+}

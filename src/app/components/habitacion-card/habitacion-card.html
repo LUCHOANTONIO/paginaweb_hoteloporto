@@ -1,0 +1,74 @@
+<div class="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-accent/20 flex flex-col h-full transform hover:-translate-y-2">
+
+  <!-- Image Area -->
+  <div class="relative h-72 overflow-hidden">
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent z-10 group-hover:from-dark/80 transition-all duration-500"></div>
+    <!-- Image -->
+    <img [src]="habitacion.imageUrl" [alt]="habitacion.name" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out">
+
+    <!-- Price badge -->
+    <div class="absolute top-4 right-4 z-20">
+      <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg border border-white/50">
+        <p class="text-primary font-bold text-lg leading-none">Bs. {{ habitacion.price }}</p>
+        <p class="text-dark-gray text-[10px] uppercase tracking-wider font-medium text-center">por noche</p>
+      </div>
+    </div>
+
+    <!-- Availability badge -->
+    <div *ngIf="habitacion.cantidad_disponible" class="absolute top-4 left-4 z-20">
+      <div class="bg-dark/70 backdrop-blur-sm text-accent text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg shadow-md flex items-center gap-1.5 border border-accent/30">
+        <div class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></div>
+        {{ habitacion.cantidad_disponible }} disponible{{ habitacion.cantidad_disponible > 1 ? 's' : '' }}
+      </div>
+    </div>
+
+    <!-- Room name overlay on image -->
+    <div class="absolute bottom-0 left-0 right-0 z-20 p-6">
+      <div class="flex items-center gap-2 mb-1">
+        <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+        <span class="text-white/80 text-xs font-medium">{{ habitacion.capacity }} {{ habitacion.capacity === 1 ? 'Huésped' : 'Huéspedes' }}</span>
+      </div>
+      <h3 class="text-2xl md:text-3xl font-serif font-bold text-white leading-tight drop-shadow-lg">{{ habitacion.name }}</h3>
+    </div>
+  </div>
+
+  <!-- Content Area -->
+  <div class="p-6 flex flex-col flex-grow">
+
+    <!-- Description -->
+    <p class="text-dark-gray text-sm font-light leading-relaxed mb-5">
+      {{ habitacion.description }}
+    </p>
+
+    <!-- Amenities -->
+    <div class="mb-6">
+      <p class="text-[10px] text-primary font-bold uppercase tracking-[0.15em] mb-3">Incluye</p>
+      <ul class="space-y-2">
+        @for (amenity of habitacion.amenities; track amenity) {
+          <li class="flex items-start gap-2.5">
+            <div class="w-4 h-4 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-2.5 h-2.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <span class="text-dark-gray text-xs font-light leading-relaxed">{{ amenity }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- CTA area -->
+    <div class="mt-auto">
+      <button *ngIf="habitacion.available" (click)="onReserve($event)"
+        class="w-full px-6 py-3.5 bg-gradient-to-r from-primary to-primary-dark text-white font-bold rounded-xl hover:from-primary-dark hover:to-primary hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 shadow-lg shadow-primary/20 text-xs uppercase tracking-widest flex items-center justify-center gap-2 group/btn">
+        <svg class="w-4 h-4 opacity-70 group-hover/btn:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        Reservar Ahora
+      </button>
+    </div>
+  </div>
+</div>
