@@ -115,8 +115,7 @@ export class ServicesSectionComponent {
         'Capacidad hasta para 100 personas',
         'Incluye sillas, mesas (según requerimiento)',
         'Equipo de sonido, micrófono',
-        'Equipo audiovisual, Ecran, Pizarra acrílica',
-        'Servicio de catering'
+        'Equipo audiovisual, Ecran, Pizarra acrílica'
       ]
     }
   ];
