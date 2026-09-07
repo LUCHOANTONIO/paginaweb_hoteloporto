@@ -1,55 +1,68 @@
 <div id="home"
-  class="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden bg-primary-dark">
+  class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-dark">
 
-  <!-- Dual Split Visual (Hotel Oporto a la izquierda / Oruro a la derecha 50% - 50%) -->
+  <!-- Dual Split Visual (50% Hotel Oporto / 50% Oruro) -->
   <div class="absolute inset-0 grid grid-cols-1 md:grid-cols-2 z-0">
+
     <!-- Lado Izquierdo: Hotel Oporto -->
     <div class="relative h-full w-full overflow-hidden">
       <img
         src="images/hotel_oporto.jpeg"
         alt="Hotel Oporto"
-        class="w-full h-full object-cover object-center brightness-100 contrast-[1.05] saturate-[1.08]" />
-      <!-- Sombra muy sutil para legibilidad de letras -->
-      <div class="absolute inset-0 bg-dark/25"></div>
+        class="w-full h-full object-cover object-center brightness-105 saturate-110" />
+      <!-- Solo un degradado inferior sutil para legibilidad del texto -->
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/15 to-transparent"></div>
     </div>
 
-    <!-- Lado Derecho: Oruro Paisaje -->
+    <!-- Lado Derecho: Oruro -->
     <div class="relative h-full w-full overflow-hidden">
       <img
         src="images/oruro_bg.png"
         alt="Ciudad de Oruro"
-        class="w-full h-full object-cover object-center brightness-100 contrast-[1.05] saturate-[1.08]" />
-      <!-- Sombra muy sutil para legibilidad de letras -->
-      <div class="absolute inset-0 bg-dark/25"></div>
+        class="w-full h-full object-cover object-center brightness-105 saturate-110" />
+      <!-- Solo un degradado inferior sutil para legibilidad del texto -->
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/15 to-transparent"></div>
     </div>
+
   </div>
 
-  <!-- Divisor central sutil para pantallas medianas/grandes -->
-  <div class="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1px] z-10 bg-gradient-to-b from-transparent via-accent/50 to-transparent shadow-[0_0_8px_rgba(212,175,55,0.4)]"></div>
+  <!-- Línea divisoria central dorada -->
+  <div class="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-[2px] z-10 bg-gradient-to-b from-transparent via-accent/70 to-transparent shadow-[0_0_12px_rgba(212,175,55,0.4)]"></div>
 
-  <!-- Contenido Central (Texto y botones originales) -->
-  <div class="relative z-20 text-center px-4 w-full max-w-5xl mx-auto mt-0 md:-mt-16">
-    <span
-      class="text-white font-sans font-semibold tracking-[0.15em] md:tracking-[0.2em] uppercase text-[10px] sm:text-xs md:text-sm mb-3 md:mb-4 block animate-fade-in-up drop-shadow-md">Hotel
-      Oporto - Inspiración</span>
+  <!-- Contenido Central -->
+  <div class="relative z-20 text-center px-4 sm:px-6 w-full max-w-5xl mx-auto mt-0 md:-mt-8">
+
+    <!-- Subtítulo / Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-accent/40 mb-4 sm:mb-6 shadow-lg animate-fade-in-up">
+      <span class="w-2 h-2 rounded-full bg-accent animate-ping"></span>
+      <span class="text-accent font-sans font-semibold tracking-[0.2em] uppercase text-[11px] sm:text-xs">
+        Hotel Oporto · Inspiración Oruro
+      </span>
+    </div>
+
+    <!-- Título Principal -->
     <h1
-      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg uppercase tracking-tight">
+      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight uppercase tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
       Eleva tu experiencia <br class="hidden sm:block" />
-      <span class="text-accent text-3xl sm:text-5xl md:text-6xl lg:text-7xl block mt-1 md:mt-2">En el corazón de Oruro</span>
+      <span class="text-accent text-3xl sm:text-5xl md:text-6xl lg:text-7xl block mt-1 md:mt-2 drop-shadow-[0_4px_20px_rgba(212,175,55,0.3)]">
+        En el corazón de Oruro
+      </span>
     </h1>
-    <p class="text-white/95 text-base sm:text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md px-2">
-      Descubre la combinación perfecta entre cultura y confort en la ciudad del Pagador.
+
+    <!-- Párrafo -->
+    <p class="text-white/90 text-base sm:text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+      Descubre la combinación perfecta entre cultura viva, descanso privilegiado y confort en la ciudad del Pagador.
     </p>
 
     <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-sm sm:max-w-none mx-auto">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
       <a href="#habitaciones"
-        class="w-full sm:w-auto px-8 py-3.5 bg-accent text-dark font-bold rounded-lg transition-all duration-300 hover:bg-accent/90 hover:shadow-xl hover:shadow-accent/20 text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+        class="w-full sm:w-auto px-8 py-4 bg-accent text-dark font-bold rounded-xl shadow-[0_10px_25px_rgba(212,175,55,0.35)] hover:shadow-[0_15px_30px_rgba(212,175,55,0.5)] hover:bg-accent/90 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-sm uppercase tracking-wider flex items-center justify-center gap-2">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
         Reservar Ahora
       </a>
       <a href="#servicios"
-        class="w-full sm:w-auto px-8 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border border-white/20 transition-all duration-300 hover:bg-white/20 hover:border-white/40 text-sm uppercase tracking-wider text-center">
+        class="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-xl border border-white/25 hover:bg-white/20 hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-sm uppercase tracking-wider text-center shadow-lg">
         Conocer Servicios
       </a>
     </div>

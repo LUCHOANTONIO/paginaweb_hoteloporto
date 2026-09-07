@@ -1,33 +1,38 @@
 <div id="hotel"
-  class="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden bg-primary-dark">
+  class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-dark">
 
-  <!-- Dual Split Visual -->
+  <!-- Dual Split Visual (50% Hotel Oporto / 50% Oruro) -->
   <div class="absolute inset-0 grid grid-cols-1 md:grid-cols-2 z-0">
+
     <!-- Lado Izquierdo: Hotel Oporto -->
     <div class="relative h-full w-full overflow-hidden">
       <img
         src="images/hotel_oporto.jpeg"
         alt="Hotel Oporto"
-        class="w-full h-full object-cover object-center brightness-100 contrast-[1.05] saturate-[1.08]" />
-      <div class="absolute inset-0 bg-dark/25"></div>
+        class="w-full h-full object-cover object-center brightness-105 saturate-110" />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/15 to-transparent"></div>
     </div>
 
-    <!-- Lado Derecho: Oruro Paisaje -->
+    <!-- Lado Derecho: Oruro -->
     <div class="relative h-full w-full overflow-hidden">
       <img
         src="images/oruro_bg.png"
         alt="Ciudad de Oruro"
-        class="w-full h-full object-cover object-center brightness-100 contrast-[1.05] saturate-[1.08]" />
-      <div class="absolute inset-0 bg-dark/25"></div>
+        class="w-full h-full object-cover object-center brightness-105 saturate-110" />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/15 to-transparent"></div>
     </div>
+
   </div>
 
-  <div class="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1px] z-10 bg-gradient-to-b from-transparent via-accent/50 to-transparent shadow-[0_0_8px_rgba(212,175,55,0.4)]"></div>
+  <!-- Línea divisoria central dorada -->
+  <div class="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-[2px] z-10 bg-gradient-to-b from-transparent via-accent/70 to-transparent shadow-[0_0_12px_rgba(212,175,55,0.4)]"></div>
 
+  <!-- Contenido Central -->
   <div class="relative z-20 text-center px-4 max-w-5xl mx-auto -mt-16">
     <span
-      class="text-white font-sans font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block animate-fade-in-up drop-shadow-md">Hotel
-      Oporto - Inspiración</span>
+      class="text-white font-sans font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block animate-fade-in-up drop-shadow-md">
+      Hotel Oporto - Inspiración
+    </span>
     <h1
       class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg uppercase tracking-tight">
       Eleva tu experiencia <br />
