@@ -6,8 +6,10 @@ export interface Habitacion {
   price: number;
   capacity: number;
   imageUrl: string;
+  nombre_imagen?: string;
   description: string;
   amenities: string[];
   available: boolean;
   cantidad_disponible?: number;
 }
+

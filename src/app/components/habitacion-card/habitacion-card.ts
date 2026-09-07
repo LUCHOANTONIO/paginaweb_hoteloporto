@@ -15,4 +15,11 @@ export class HabitacionCardComponent {
     event.preventDefault();
     this.reserve.emit(this.habitacion);
   }
+
+  onImageError(event: Event) {
+    const target = event.target as HTMLImageElement;
+    if (target && !target.src.includes('hotel_oporto.jpeg')) {
+      target.src = 'images/hotel_oporto.jpeg';
+    }
+  }
 }

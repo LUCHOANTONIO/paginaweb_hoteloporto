@@ -128,7 +128,7 @@
       <div class="p-6 md:p-8">
         <!-- Room Info Card -->
         <div class="mb-8 flex items-center gap-5 bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm transition-transform hover:-translate-y-1 duration-300">
-          <img [src]="selectedHabitacion.imageUrl" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Room">
+          <img [src]="selectedHabitacion.imageUrl" (error)="$any($event.target).src = 'images/hotel_oporto.jpeg'" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Room">
           <div>
             <p class="text-xs text-primary font-bold uppercase tracking-wider mb-1">{{ selectedHabitacion.type }}</p>
             <p class="text-dark font-sans font-bold text-xl leading-tight">Habitación {{ selectedHabitacion.nro_habitacion }}</p>

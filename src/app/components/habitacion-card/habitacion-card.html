@@ -5,7 +5,7 @@
     <!-- Gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent z-10 group-hover:from-dark/80 transition-all duration-500"></div>
     <!-- Image -->
-    <img [src]="habitacion.imageUrl" [alt]="habitacion.name" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out">
+    <img [src]="habitacion.imageUrl" [alt]="habitacion.name" (error)="onImageError($event)" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out">
 
     <!-- Price badge -->
     <div class="absolute top-4 right-4 z-20">
