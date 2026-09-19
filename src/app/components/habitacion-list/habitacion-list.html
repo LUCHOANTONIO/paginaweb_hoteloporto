@@ -109,30 +109,30 @@
   </div>
 
   <!-- Modal de Reserva -->
-  <div *ngIf="selectedHabitacion" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-dark/70 backdrop-blur-md animate-fade-in-up">
-    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden relative border border-white/20">
+  <div *ngIf="selectedHabitacion" class="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-dark/70 backdrop-blur-md animate-fade-in-up overflow-y-auto">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[92vh] flex flex-col overflow-hidden relative border border-white/20 my-auto">
       
       <!-- Header -->
-      <div class="bg-primary px-6 py-5 flex justify-between items-center relative overflow-hidden">
+      <div class="bg-primary px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center relative overflow-hidden shrink-0">
         <!-- Decoracion sutil de fondo en el header -->
         <div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-dark opacity-90 z-0"></div>
         <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10 z-0"></div>
         
-        <h3 class="text-xl font-sans font-bold text-white tracking-tight relative z-10">Reservar Habitación</h3>
+        <h3 class="text-lg sm:text-xl font-sans font-bold text-white tracking-tight relative z-10">Reservar Habitación</h3>
         <button (click)="closeModal()" class="relative z-10 text-white/80 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-sm">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
 
       <!-- Body -->
-      <div class="p-6 md:p-8">
+      <div class="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1 overscroll-contain">
         <!-- Room Info Card -->
-        <div class="mb-8 flex items-center gap-5 bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm transition-transform hover:-translate-y-1 duration-300">
-          <img [src]="selectedHabitacion.imageUrl" (error)="$any($event.target).src = 'images/hotel_oporto.jpeg'" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Room">
-          <div>
-            <p class="text-xs text-primary font-bold uppercase tracking-wider mb-1">{{ selectedHabitacion.type }}</p>
-            <p class="text-dark font-sans font-bold text-xl leading-tight">Habitación {{ selectedHabitacion.nro_habitacion }}</p>
-            <p class="text-sm font-medium text-dark-gray mt-1">Bs. {{ selectedHabitacion.price }} <span class="text-xs font-normal">/ noche</span></p>
+        <div class="mb-5 sm:mb-6 flex items-center gap-3 sm:gap-5 bg-gray-50 p-3 sm:p-4 rounded-xl border border-gray-100 shadow-sm transition-transform hover:-translate-y-0.5 duration-300">
+          <img [src]="selectedHabitacion.imageUrl" (error)="$any($event.target).src = 'images/hotel_oporto.png'" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg shadow-md" alt="Room">
+          <div class="min-w-0 flex-1">
+            <p class="text-xs text-primary font-bold uppercase tracking-wider mb-0.5">{{ selectedHabitacion.type }}</p>
+            <p class="text-dark font-sans font-bold text-lg sm:text-xl leading-tight truncate">Habitación {{ selectedHabitacion.nro_habitacion }}</p>
+            <p class="text-sm font-medium text-dark-gray mt-0.5">Bs. {{ selectedHabitacion.price }} <span class="text-xs font-normal">/ noche</span></p>
           </div>
         </div>
 
@@ -145,56 +145,56 @@
             <p class="text-dark-gray">Tu reserva ha sido procesada correctamente.</p>
           </div>
         } @else {
-          <form [formGroup]="reservationForm" (ngSubmit)="submitReservation()" class="space-y-4">
+          <form [formGroup]="reservationForm" (ngSubmit)="submitReservation()" class="space-y-3.5 sm:space-y-4">
             
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Llegada</label>
-                <input type="date" formControlName="fecha_ini" class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2.5 text-gray-500 font-medium opacity-70 cursor-not-allowed">
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">Llegada</label>
+                <input type="date" formControlName="fecha_ini" class="w-full bg-gray-100 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-500 font-medium opacity-70 cursor-not-allowed">
               </div>
               <div>
-                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Salida</label>
-                <input type="date" formControlName="fecha_fin" class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2.5 text-gray-500 font-medium opacity-70 cursor-not-allowed">
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">Salida</label>
+                <input type="date" formControlName="fecha_fin" class="w-full bg-gray-100 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-500 font-medium opacity-70 cursor-not-allowed">
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">DNI / Pasaporte <span class="text-primary">*</span></label>
-              <input #docInput (keydown.enter)="nomInput.focus(); $event.preventDefault()" id="nroDocumentoInput" type="text" formControlName="nro_documento" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ingrese su documento">
+              <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">DNI / Pasaporte <span class="text-primary">*</span></label>
+              <input #docInput (keydown.enter)="nomInput.focus(); $event.preventDefault()" id="nroDocumentoInput" type="text" formControlName="nro_documento" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ingrese su documento">
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Nombre <span class="text-primary">*</span></label>
-              <input #nomInput (keydown.enter)="ape1Input.focus(); $event.preventDefault()" type="text" formControlName="nombre" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. Juan">
+              <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">Nombre <span class="text-primary">*</span></label>
+              <input #nomInput (keydown.enter)="ape1Input.focus(); $event.preventDefault()" type="text" formControlName="nombre" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. Juan">
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Primer Apellido <span class="text-primary">*</span></label>
-                <input #ape1Input (keydown.enter)="ape2Input.focus(); $event.preventDefault()" type="text" formControlName="primer_apellido" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. Pérez">
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">Primer Apellido <span class="text-primary">*</span></label>
+                <input #ape1Input (keydown.enter)="ape2Input.focus(); $event.preventDefault()" type="text" formControlName="primer_apellido" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. Pérez">
               </div>
               <div>
-                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Segundo Apellido</label>
-                <input #ape2Input (keydown.enter)="telInput.focus(); $event.preventDefault()" type="text" formControlName="segundo_apellido" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="(Opcional)">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Teléfono (WhatsApp) <span class="text-primary">*</span></label>
-                <input #telInput (keydown.enter)="detalleInput.focus(); $event.preventDefault()" type="text" formControlName="telefono" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. 70012345">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-2">Detalle Opcional</label>
-                <textarea #detalleInput (keydown.enter)="submitBtn.focus(); $event.preventDefault()" formControlName="detalle" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal resize-none h-[48px]" placeholder="(Opcional)"></textarea>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">Segundo Apellido</label>
+                <input #ape2Input (keydown.enter)="telInput.focus(); $event.preventDefault()" type="text" formControlName="segundo_apellido" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="(Opcional)">
               </div>
             </div>
 
-            <div class="pt-6 flex justify-end gap-4 mt-8 border-t border-gray-100">
-              <button type="button" (click)="closeModal()" class="px-6 py-3 rounded-lg text-dark-gray font-bold hover:bg-gray-100 hover:text-dark transition-colors">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">Teléfono (WhatsApp) <span class="text-primary">*</span></label>
+                <input #telInput (keydown.enter)="detalleInput.focus(); $event.preventDefault()" type="tel" formControlName="telefono" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal" placeholder="Ej. 70012345">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-dark-gray uppercase tracking-wider mb-1.5">Detalle Opcional</label>
+                <textarea #detalleInput (keydown.enter)="submitBtn.focus(); $event.preventDefault()" formControlName="detalle" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-dark font-medium focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all placeholder:text-gray-400 placeholder:font-normal resize-none h-[44px] sm:h-[48px]" placeholder="(Opcional)"></textarea>
+              </div>
+            </div>
+
+            <div class="pt-4 sm:pt-6 flex flex-col-reverse sm:flex-row justify-end gap-3 sm:gap-4 mt-6 sm:mt-8 border-t border-gray-100">
+              <button type="button" (click)="closeModal()" class="w-full sm:w-auto px-6 py-3 rounded-lg text-dark-gray font-bold hover:bg-gray-100 hover:text-dark transition-colors text-center text-sm">
                 Cancelar
               </button>
-              <button #submitBtn type="submit" [disabled]="reservationForm.invalid || isSubmitting" class="px-8 py-3 rounded-lg bg-primary text-accent font-bold border border-accent/50 hover:bg-primary-dark hover:border-accent hover:shadow-accent/30 transition-all duration-300 shadow-lg shadow-primary/40 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed flex items-center justify-center min-w-[180px] uppercase text-xs tracking-wider">
+              <button #submitBtn type="submit" [disabled]="reservationForm.invalid || isSubmitting" class="w-full sm:w-auto px-8 py-3.5 sm:py-3 rounded-lg bg-primary text-accent font-bold border border-accent/50 hover:bg-primary-dark hover:border-accent hover:shadow-accent/30 transition-all duration-300 shadow-lg shadow-primary/40 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed flex items-center justify-center min-w-[180px] uppercase text-xs tracking-wider">
                 @if(isSubmitting) {
                   <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                   Procesando...

@@ -38,7 +38,7 @@ export class HabitacionService {
   // ==============================================================================
   private getImageUrl(nombreImagen?: string): string {
     if (!nombreImagen || typeof nombreImagen !== 'string' || !nombreImagen.trim()) {
-      return 'images/hotel_oporto.jpeg';
+      return 'images/hotel_oporto.png';
     }
     const clean = nombreImagen.trim();
     if (clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('/')) {
